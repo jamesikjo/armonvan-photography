@@ -8,7 +8,7 @@ export default function Home({ photoData }) {
   return (
     <Layout setHeight="none">
       <Head>
-        <title>AV Photography</title>
+        <title>Armon Van Photography</title>
         <meta name="description" content="Armon Van Photography" />
         <link rel="icon" href="/icon.png" />
       </Head>
