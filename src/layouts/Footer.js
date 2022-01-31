@@ -52,18 +52,6 @@ const Footer = ({ pages }) => {
           © {new Date().getFullYear()} RG-Photography. All rights reserved.
         </Typography>
       </Grid>
-      <Grid item>
-        <Typography variant="body2" color="primary" sx={{ fontSize: 10 }}>
-          Logo created with{" "}
-          <a
-            href="https://www.LogoMakr.com"
-            title="Logo Makr"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            LogoMakr.com
-          </a>
-        </Typography>
-      </Grid>
     </Grid>
   );
 };
