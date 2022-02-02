@@ -1,19 +1,66 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import {
   Button,
   Container,
   Divider,
   Grid,
-  Hidden,
   TextField,
   Typography,
-  Box,
 } from "@mui/material/";
 
+const validationSchema = yup.object({
+  name: yup
+    .string()
+    .trim()
+    .min(2, "Please enter a valid name")
+    .max(50, "Please enter a valid name")
+    .required("Please specify your first name"),
+  email: yup
+    .string()
+    .trim()
+    .email("Please enter a valid email address")
+    .required("Email is required."),
+  message: yup
+    .string()
+    .trim()
+    .max(250, "Message Limit")
+    .required("Please specify your message"),
+});
+
 const Contact = () => {
+  const router = useRouter();
+
+  //property names must match id and name
+  const initialValues = {
+    name: "",
+    email: "",
+    message: "",
+  };
+
+  const onSubmit = async (values) => {
+    await fetch("/api/mail", {
+      method: "POST",
+      body: JSON.stringify(values),
+    }).catch((err) => {
+      console.log(err);
+    });
+    router.replace({
+      pathname: "/",
+    });
+  };
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema: validationSchema,
+    onSubmit,
+  });
+
   return (
-    <Box component="form">
+    <form onSubmit={formik.handleSubmit}>
       <Grid
         container
         justifyContent="center"
@@ -51,28 +98,29 @@ const Contact = () => {
 
           <Grid item mb={1}>
             <TextField
-              required
-              id="name-field"
+              id="name"
               label="Name"
               name="name"
               fullWidth
               variant="standard"
-              //   value={state.name}
-              //   onChange={handleChange}
-              inputProps={{ minLength: 2 }}
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
             />
           </Grid>
           <Grid item mb={4}>
             <TextField
-              required
-              id="email-field"
+              id="email"
               label="Email"
               type="email"
               name="email"
               variant="standard"
-              //   value={state.email}
-              //   onChange={handleChange}
               fullWidth
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
             />
           </Grid>
           <Grid item mb={3}>
@@ -80,16 +128,16 @@ const Contact = () => {
               Message
             </Typography>
             <TextField
-              required
-              id="message-field"
+              id="message"
               name="message"
               variant="outlined"
               fullWidth
               multiline
               rows={4}
-              //   value={state.message}
-              //   onChange={handleChange}
-              inputProps={{ maxLength: 200 }}
+              value={formik.values.message}
+              onChange={formik.handleChange}
+              error={formik.touched.message && Boolean(formik.errors.message)}
+              helperText={formik.touched.message && formik.errors.message}
             />
           </Grid>
 
@@ -105,21 +153,19 @@ const Contact = () => {
           </Grid>
         </Grid>
 
-        <Hidden smDown>
-          <Grid item lg={6}>
-            <Container maxWidth="sm">
-              <Image
-                src="/images/profile-shot.jpg"
-                alt="profile"
-                width={640}
-                height={427}
-                priority
-              />
-            </Container>
-          </Grid>
-        </Hidden>
+        <Grid item lg={6} sx={{ display: { xs: "none", md: "block" } }}>
+          <Container maxWidth="sm">
+            <Image
+              src="/images/profile-shot.jpg"
+              alt="profile"
+              width={640}
+              height={427}
+              priority
+            />
+          </Container>
+        </Grid>
       </Grid>
-    </Box>
+    </form>
   );
 };
 

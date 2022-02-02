@@ -1,14 +1,15 @@
 import React from "react";
-import { Stack, Typography } from "@mui/material";
+import { Divider, Stack, Typography, Box } from "@mui/material";
 
 const Statement = () => {
   return (
-    <Stack alignItems="center">
+    <Box>
       <Typography
         variant="h5"
         color="primary"
         fontWeight="bold"
         sx={{ letterSpacing: "0.2rem" }}
+        align="center"
         gutterBottom
       >
         ARTIST STATEMENT
@@ -18,7 +19,7 @@ const Statement = () => {
         photography. I specialize in capturing moments through long exposure and
         in low light. Click on a category to view some of my captures.
       </Typography>
-    </Stack>
+    </Box>
   );
 };
 

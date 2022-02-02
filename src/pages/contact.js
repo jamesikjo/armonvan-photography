@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@mui/material";
 import Layout from "../layouts";
-import Contact from "./../components/Contact/index";
+import Contact from "./../components/Contact/";
 
 const ContactPage = () => {
   return (
