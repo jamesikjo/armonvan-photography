@@ -12,7 +12,7 @@ const handler = async (req, res) => {
 
   await mail
     .send({
-      to: "jamesjodev@gmail.com",
+      to: "armonvanjayjay@gmail.com",
       from: "no-reply@armonvanphoto.com",
       subject: "Message from armonvanphoto",
       text: message,
