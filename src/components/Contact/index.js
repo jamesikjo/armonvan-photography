@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useFormik } from "formik";
@@ -11,6 +11,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material/";
+import SuccessToast from "./SuccessToast";
 
 const validationSchema = yup.object({
   name: yup
@@ -33,6 +34,11 @@ const validationSchema = yup.object({
 
 const Contact = () => {
   const router = useRouter();
+  const [openToast, setOpenToast] = useState(false);
+
+  const handleCloseToast = () => {
+    setOpenToast(false);
+  };
 
   //property names must match id and name
   const initialValues = {
@@ -41,16 +47,18 @@ const Contact = () => {
     message: "",
   };
 
-  const onSubmit = async (values) => {
-    await fetch("/api/mail", {
-      method: "POST",
-      body: JSON.stringify(values),
-    }).catch((err) => {
+  const onSubmit = async (values, { resetForm }) => {
+    try {
+      await fetch("/api/mail", {
+        method: "POST",
+        body: JSON.stringify(values),
+      });
+      resetForm();
+      setOpenToast(true);
+    } catch (err) {
       console.log(err);
-    });
-    router.replace({
-      pathname: "/",
-    });
+      alert("Error sending message");
+    }
   };
 
   const formik = useFormik({
@@ -140,16 +148,17 @@ const Contact = () => {
               helperText={formik.touched.message && formik.errors.message}
             />
           </Grid>
+          <Grid item>
+            <SuccessToast
+              open={openToast}
+              handleCloseToast={handleCloseToast}
+            />
+          </Grid>
 
           <Grid item align="center">
             <Button variant="outlined" type="submit">
               Submit
             </Button>
-            {/* {success && (
-              <Typography color="primary" variant="body1">
-                Thanks for your message!
-              </Typography>
-            )} */}
           </Grid>
         </Grid>
 

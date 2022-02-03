@@ -5,16 +5,16 @@ const handler = async (req, res) => {
   const body = JSON.parse(req.body);
 
   const message = `
-      name: ${body.name}\r\n
+      Name: ${body.name}\r\n
       Email: ${body.email}\r\n
       Message: ${body.message}
     `;
 
   await mail
     .send({
-      to: "armonvanjayjay@gmail.com",
+      to: "jamesjodev@gmail.com",
       from: "no-reply@armonvanphoto.com",
-      subject: "Message from Contact Page",
+      subject: "Message from armonvanphoto",
       text: message,
       html: message.replace(/\r\n/g, "<br>"),
     })
