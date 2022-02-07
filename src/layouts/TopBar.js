@@ -9,6 +9,7 @@ const TopBar = ({ open, pages, handleClickOpen, handleClose, children }) => {
     <Container maxWidth="lg" component="nav">
       <Toolbar
         sx={{
+          height: 75,
           lineHeight: 0,
         }}
         disableGutters
@@ -18,8 +19,8 @@ const TopBar = ({ open, pages, handleClickOpen, handleClose, children }) => {
             <Box component="a" title="Armon Van Photography">
               <Box
                 component="img"
-                src="/images/nav-logo.svg"
-                sx={{ width: 300 }}
+                src="/images/nav-logo.png"
+                sx={{ width: 280 }}
               />
             </Box>
           </Link>
