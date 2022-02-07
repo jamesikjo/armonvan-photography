@@ -12,8 +12,8 @@ const Footer = ({ pages }) => {
         <Image
           src="/images/footer-logo.png"
           alt="footer"
-          width={170}
-          height={60}
+          width={150}
+          height={55}
         />
       </Grid>
       <Grid item pb={1}>
