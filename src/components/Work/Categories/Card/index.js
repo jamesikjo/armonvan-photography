@@ -25,6 +25,7 @@ const CategoryCard = ({ category }) => {
       </Link>
       <Typography
         variant="body1"
+        noWrap
         sx={{
           position: "absolute",
           top: "50%",
