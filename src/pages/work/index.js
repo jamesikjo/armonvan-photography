@@ -8,7 +8,7 @@ import Statement from "./../../components/Work/Statement/index";
 const Work = ({ categories }) => {
   return (
     <Layout>
-      <Container maxWidth="md" sx={{ py: { xs: 5, sm: 10 } }}>
+      <Container maxWidth="md" sx={{ py: { sm: 10 } }}>
         <Statement />
         <Categories categories={categories} />
       </Container>

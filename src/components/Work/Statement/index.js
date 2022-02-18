@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Stack, Typography, Box } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 
 const Statement = () => {
   return (
@@ -14,7 +14,7 @@ const Statement = () => {
       >
         ARTIST STATEMENT
       </Typography>
-      <Typography variant="subtitle1" color="secondary" align="center" mb={2}>
+      <Typography variant="subtitle1" color="secondary" align="center" mb={3}>
         My focus is on outdoor events, live perfomances and wildlife
         photography. I specialize in capturing moments through long exposure and
         in low light. Click on a category to view some of my captures.

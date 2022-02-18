@@ -9,7 +9,7 @@ const TopBar = ({ open, pages, handleClickOpen, handleClose, children }) => {
     <Container maxWidth="lg" component="nav">
       <Toolbar
         sx={{
-          height: 75,
+          maxHeight: 80,
           lineHeight: 0,
         }}
         disableGutters
