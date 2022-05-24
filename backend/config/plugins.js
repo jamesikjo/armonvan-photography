@@ -1,4 +1,6 @@
 module.exports = ({ env }) => ({
+  // ...
+
   upload: {
     config: {
       provider: "cloudinary",
@@ -7,7 +9,12 @@ module.exports = ({ env }) => ({
         api_key: env("CLOUDINARY_KEY"),
         api_secret: env("CLOUDINARY_SECRET"),
       },
+    },
+  },
+  "users-permissions": {
+    config: {
       jwtSecret: env("JWT_SECRET"),
     },
   },
+  // ...
 });
