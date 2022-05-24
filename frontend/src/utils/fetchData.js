@@ -3,12 +3,12 @@
 import qs from "qs";
 
 export const getStrapiURL = (path = "") => {
-  return `${process.env.NEXT_STRAPI_URL_API || "http://localhost:1337"}${path}`;
+  return `${
+    process.env.NEXT_PUBLIC_STRAPI_API_URL || process.env.NEXT_PUBLIC_BASE_URL
+  }${path}`;
 };
 
 export const fetchData = async (path, paramsObj = {}, options = {}) => {
-  console.log(path);
-  console.log(paramsObj);
   const mergedOptions = {
     headers: {
       "Content-Type": "application/json",
