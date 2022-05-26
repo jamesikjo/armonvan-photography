@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Box } from "@mui/material/";
 import AddIcon from "@mui/icons-material/Add";
-import TransitionsModal from "./TransitionsModal";
-import { getStrapiMedia } from "../../utils/media";
+import TransitionsModal from "../PhotoModal/PhotoModal";
+import { getStrapiMedia } from "../../../lib/media";
 
-const CardModal = ({ image }) => {
+const PhotoCard = ({ image }) => {
   const { alternativeText, title } = image.data.attributes;
 
   const [open, setOpen] = useState(false);
@@ -70,4 +70,4 @@ const CardModal = ({ image }) => {
   );
 };
 
-export default CardModal;
+export default PhotoCard;

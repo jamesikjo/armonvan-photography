@@ -1,9 +1,8 @@
-import React from "react";
 import Image from "next/image";
 import { Modal, Backdrop } from "@mui/material";
-import { getStrapiMedia } from "../../utils/media";
+import { getStrapiMedia } from "../../../lib/media";
 
-const TransitionsModal = ({ image, title, open, handleModalClose }) => {
+const PhotoModal = ({ image, title, open, handleModalClose }) => {
   const { alternativeText, width, height } = image.data.attributes;
 
   return (
@@ -31,4 +30,4 @@ const TransitionsModal = ({ image, title, open, handleModalClose }) => {
   );
 };
 
-export default TransitionsModal;
+export default PhotoModal;

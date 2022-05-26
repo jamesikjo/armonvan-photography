@@ -29,5 +29,6 @@ export const fetchData = async (path, paramsObj = {}, options = {}) => {
     throw new Error(`An error occured please try again`);
   }
   const data = await response.json();
+  console.log(data);
   return data;
 };

@@ -1,16 +1,15 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Box, CardMedia, Typography } from "@mui/material/";
-import { getStrapiMedia } from "./../../../../utils/media";
+import { Box, Typography } from "@mui/material/";
+import { getStrapiMedia } from "../../../../lib/media";
 
 const CategoryCard = ({ category }) => {
   const { name, cover, title } = category.attributes;
   return (
     <Box
       position="relative"
-      py={1}
+      width={{ xs: 350, md: 400 }}
       sx={{
         "&:hover": {
           "& img": {
@@ -29,20 +28,13 @@ const CategoryCard = ({ category }) => {
           <Image
             src={getStrapiMedia(cover)}
             alt={name}
-            width={400}
-            height={280}
+            width={cover.data.attributes.width}
+            height={cover.data.attributes.height}
           />
         </a>
-        {/* <CardMedia
-          component="a"
-          image={getStrapiMedia(cover)}
-          title={name}
-          sx={{ height: 280, width: { xs: 350, md: 400 } }}
-        /> */}
       </Link>
       <Typography
         variant="h6"
-        fontWeight="500"
         noWrap
         sx={{
           position: "absolute",

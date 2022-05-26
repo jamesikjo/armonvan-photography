@@ -7,7 +7,7 @@ const Footer = ({ pages }) => {
   const router = useRouter();
 
   return (
-    <Grid container direction="column" alignItems="center" py={4}>
+    <Grid container direction="column" alignItems="center">
       <Grid item sx={{ height: 60 }}>
         <Image
           src="/images/footer-logo.png"
@@ -48,8 +48,14 @@ const Footer = ({ pages }) => {
         </Stack>
       </Grid>
       <Grid item>
-        <Typography variant="body2" color="primary" sx={{ fontSize: 10 }}>
-          © {new Date().getFullYear()} AV-Photography. All rights reserved.
+        <Typography
+          variant="body2"
+          color="primary"
+          align="center"
+          sx={{ fontSize: 10 }}
+        >
+          © {new Date().getFullYear()} ArmonVan-Photography. <br /> All rights
+          reserved.
         </Typography>
       </Grid>
     </Grid>
