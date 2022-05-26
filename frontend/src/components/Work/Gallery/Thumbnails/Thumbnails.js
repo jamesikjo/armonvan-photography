@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Box, Stack } from "@mui/material/";
-import sideScroll from "../../../../utils/sideScroll";
-import { getStrapiMedia } from "../../../../utils/media";
+import sideScroll from "../../../../lib/sideScroll";
+import { getStrapiMedia } from "../../../../lib/media";
 
 const Thumbnails = ({ photos, setPhotoIdx, photoIdx, forwardedRef }) => {
   const [clickPosition, setClickPosition] = useState(0);

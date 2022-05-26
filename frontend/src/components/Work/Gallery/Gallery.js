@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import Image from "next/image";
 import { Container, Dialog, Slide, Typography, Box } from "@mui/material/";
-import { getStrapiMedia } from "./../../../utils/media";
+import { getStrapiMedia } from "../../../lib/media";
 import BackButton from "./BackButton";
 import CloseDialogIcon from "./CloseDialogIcon";
 import ForwardButton from "./ForwardButton";

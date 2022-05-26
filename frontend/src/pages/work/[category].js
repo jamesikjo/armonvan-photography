@@ -1,12 +1,11 @@
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/router";
-import sideScroll from "./../../utils/sideScroll";
+import sideScroll from "../../lib/sideScroll";
 import Gallery from "../../components/Work/Gallery";
-import { fetchData } from "../../utils/fetchData";
+import { fetchData } from "../../lib/fetchData";
 import Thumbnails from "../../components/Work/Gallery/Thumbnails";
 
 const PhotoGallery = ({ photos }) => {
-  console.log(photos);
   const { data: photoList } = photos;
 
   const [open, setOpen] = useState(true);
@@ -14,7 +13,7 @@ const PhotoGallery = ({ photos }) => {
   const thumbnailWrapper = useRef(null);
   const router = useRouter();
 
-  //check for photos and set first photo from collection to a variable
+  //check for photos and set first photo from collection to getSinglePhoto
   const getSinglePhoto = photoList.length && photoList[photoIdx];
 
   const handleCloseDialog = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchData } from "../../utils/fetchData";
+import { fetchData } from "../../lib/fetchData";
 import { Container } from "@mui/material";
 import Layout from "../../Layout";
 import Categories from "../../components/Work/Categories";
@@ -7,7 +7,7 @@ import Statement from "./../../components/Work/Statement/index";
 
 const Work = ({ categories }) => {
   return (
-    <Layout>
+    <Layout title="Work">
       <Container maxWidth="md" sx={{ py: { sm: 10 } }}>
         <Statement />
         <Categories categories={categories} />
