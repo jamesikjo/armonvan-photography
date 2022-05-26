@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Stack, Container } from "@mui/material/";
+import { Box, Stack } from "@mui/material/";
 import CategoryCard from "./Card";
 
 const Categories = ({ categories }) => {
@@ -9,8 +8,7 @@ const Categories = ({ categories }) => {
         direction={{ xs: "column", md: "row" }}
         justifyContent="center"
         alignItems="center"
-        flexWrap="wrap"
-        spacing={2}
+        spacing={1}
       >
         {categories.map((c, idx) => (
           <Box key={idx}>

@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material/";
+import { Button, Container, Grid, TextField, Typography } from "@mui/material/";
 import SuccessToast from "./SuccessToast";
 
 const validationSchema = yup.object({
@@ -70,7 +63,7 @@ const Contact = () => {
         container
         justifyContent="center"
         alignItems="center"
-        sx={{ padding: { xs: 4, lg: 0 } }}
+        sx={{ padding: { xs: 2, lg: 0 } }}
       >
         <Grid
           item
@@ -85,19 +78,14 @@ const Contact = () => {
               color="primary"
               fontWeight="bold"
               gutterBottom
-              sx={{ letterSpacing: "0.2rem" }}
+              sx={{ letterSpacing: "0.15rem" }}
             >
               CONTACT
             </Typography>
-            <Divider
-              sx={{
-                m: "1em 0em",
-              }}
-            />
+
             <Typography variant="subtitle1" color="primary">
-              Do you feel connected with my photos? Do you have a question or
-              would you like to collaborate in one way or another? I would love
-              to hear from you.
+              Do you have a question or would you like to collaborate in one way
+              or another? I would love to hear from you.
             </Typography>
           </Grid>
 

@@ -5,8 +5,8 @@ import Layout from "../Layout";
 
 const ContactPage = () => {
   return (
-    <Layout>
-      <Container disableGutters sx={{ px: { lg: 3 } }}>
+    <Layout title="Contact">
+      <Container maxWidth="lg" sx={{ py: { sm: 10 } }}>
         <Contact />
       </Container>
     </Layout>
