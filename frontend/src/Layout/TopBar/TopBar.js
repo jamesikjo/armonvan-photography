@@ -1,48 +1,48 @@
-import React from "react";
 import Link from "next/link";
 import { Container, IconButton, Toolbar, Box, Divider } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import DialogNav from "./TopBar";
+import NavLinks from "../NavLinks";
 
-const TopBar = ({ open, pages, handleClickOpen, handleClose, children }) => {
+const TopBar = ({ open, handleClickOpen, handleClose, pages }) => {
   return (
-    <Container maxWidth="lg" component="nav">
-      <Toolbar
-        sx={{
-          maxHeight: 80,
-          lineHeight: 0,
-        }}
-        disableGutters
-      >
-        <Box display="flex" sx={{ flexGrow: 1 }}>
-          <Link href="/" passHref>
-            <Box component="a" title="Armon Van Photography">
-              <Box
-                component="img"
-                src="/images/nav-logo.png"
-                sx={{ width: 280 }}
-              />
-            </Box>
-          </Link>
-        </Box>
-        <Box sx={{ display: { xs: "none", md: "block" } }}>{children}</Box>
-
-        {/*open nav menu dialog on small to medium screensizes */}
-
-        <IconButton
-          aria-label="menu"
-          onClick={handleClickOpen}
-          sx={{ display: { xs: "inline-flex", md: "none" } }}
+    <>
+      <Container maxWidth="lg" component="nav">
+        <Toolbar
+          sx={{
+            maxHeight: 80,
+            lineHeight: 0,
+          }}
+          disableGutters
         >
-          <MenuIcon />
-        </IconButton>
-      </Toolbar>
-      <Divider sx={{ mb: 3 }} />
+          <Box display="flex" sx={{ flexGrow: 1 }}>
+            <Link href="/" passHref>
+              <Box component="a" title="Armon Van Photography">
+                <Box
+                  component="img"
+                  src="/images/nav-logo.png"
+                  sx={{ width: 280 }}
+                />
+              </Box>
+            </Link>
+          </Box>
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
+            <NavLinks pages={pages} handleClose={handleClose} />
+          </Box>
 
-      <DialogNav pages={pages} handleClose={handleClose} open={open}>
-        {children}
-      </DialogNav>
-    </Container>
+          {/*open nav menu dialog on small to medium screensizes */}
+
+          <IconButton
+            aria-label="menu"
+            onClick={handleClickOpen}
+            sx={{ display: { xs: "inline-flex", md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+        <Divider sx={{ mb: 3 }} />
+      </Container>
+    </>
   );
 };
 

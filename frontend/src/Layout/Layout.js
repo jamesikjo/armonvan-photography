@@ -1,78 +1,49 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Box, useTheme, Button, IconButton } from "@mui/material";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import { pages } from "../utils/navigation";
-import Footer from "./Footer";
+import Head from "next/head";
+import { Box } from "@mui/material";
 import TopBar from "./TopBar";
+import NavDialog from "./NavDialog";
+import Footer from "./Footer";
 
-export const NavLinks = ({ pages, handleClose }) => {
-  const router = useRouter();
-  const theme = useTheme();
+const pages = [
+  { title: "home", path: "/" },
+  { title: "work", path: "/work" },
+  { title: "contact", path: "/contact" },
+  {
+    title: "upload",
+    path: "https://armonvan-photo.herokuapp.com/admin",
+  },
+];
 
-  return (
-    <>
-      {pages.map(({ title, path }, i) => (
-        <Link href={path} passHref key={i}>
-          <Button
-            component="a"
-            color="primary"
-            disableRipple
-            onClick={handleClose}
-            sx={{
-              fontWeight: router.pathname === path && "bold",
-              "&:hover": {
-                backgroundColor: "transparent",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            {title}
-          </Button>
-        </Link>
-      ))}
-      <IconButton
-        color="secondary"
-        aria-label="instagram"
-        href="https://www.instagram.com/lurking.glass/"
-        target="_blank"
-        onClick={handleClose}
-        disableRipple
-        sx={{
-          "&:hover": {
-            color: theme.palette.primary.main,
-            backgroundColor: "transparent",
-          },
-        }}
-      >
-        <InstagramIcon fontSize="small" />
-      </IconButton>
-    </>
-  );
-};
-
-const Layout = ({ children, setHeight = "100vh" }) => {
-  const [open, setOpen] = useState(false);
+const Layout = ({ children, title }) => {
+  const [openNavDialog, setOpenNavDialog] = useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpenNavDialog(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setOpenNavDialog(false);
   };
 
   return (
-    <Box minHeight={setHeight} display="flex" flexDirection="column">
-      <TopBar
-        open={open}
+    <>
+      <Head>
+        <title>ArmonVan Photography | {title}</title>
+      </Head>
+      {/* navigation dialog menu for mobile view */}
+      <NavDialog
+        openNavDialog={openNavDialog}
+        handleClose={handleClose}
         pages={pages}
+      />
+      <TopBar
+        pages={pages}
+        openNavDialog={openNavDialog}
         handleClickOpen={handleClickOpen}
         handleClose={handleClose}
-      >
-        <NavLinks pages={pages} handleClose={handleClose} />
-      </TopBar>
+      />
+
       <Box
         component="main"
         sx={{
@@ -85,7 +56,7 @@ const Layout = ({ children, setHeight = "100vh" }) => {
         {children}
       </Box>
       <Footer pages={pages} />
-    </Box>
+    </>
   );
 };
 
