@@ -17,7 +17,6 @@ export const fetchData = async (path, paramsObj = {}, options = {}) => {
   };
 
   const queryString = qs.stringify(paramsObj);
-
   const requestUrl = `${getStrapiURL(
     `/api${path}${queryString ? `?${queryString}` : ""}`
   )}`;
@@ -29,6 +28,5 @@ export const fetchData = async (path, paramsObj = {}, options = {}) => {
     throw new Error(`An error occured please try again`);
   }
   const data = await response.json();
-  console.log(data);
   return data;
 };

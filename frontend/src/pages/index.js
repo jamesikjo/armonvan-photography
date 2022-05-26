@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { Box } from "@mui/system";
 import Landing from "../components/Landing";
 import Layout from "../Layout";
