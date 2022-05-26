@@ -1,5 +1,5 @@
 import { Box, Stack } from "@mui/material/";
-import CategoryCard from "./Card";
+import CategoryCard from "./CategoryCard";
 
 const Categories = ({ categories }) => {
   return (
