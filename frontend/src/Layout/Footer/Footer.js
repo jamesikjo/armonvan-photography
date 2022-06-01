@@ -10,10 +10,10 @@ const Footer = ({ pages }) => {
     <Grid container direction="column" alignItems="center">
       <Grid item>
         <Image
-          src="/images/footer-logo.png"
+          src="/images/armonvan-footer-logo.png"
           alt="footer"
-          width={130}
-          height={45}
+          width={145}
+          height={60}
         />
       </Grid>
       <Grid item pb={1}>
@@ -52,7 +52,7 @@ const Footer = ({ pages }) => {
           variant="body2"
           color="primary"
           align="center"
-          sx={{ fontSize: 10 }}
+          sx={{ fontSize: 8 }}
         >
           © {new Date().getFullYear()} ArmonVan-Photography. <br /> All rights
           reserved.
