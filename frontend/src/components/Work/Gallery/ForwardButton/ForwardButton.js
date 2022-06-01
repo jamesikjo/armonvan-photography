@@ -8,8 +8,8 @@ const ForwardButton = ({ handleNextPhoto }) => {
         aria-label="right-arrow"
         onClick={handleNextPhoto}
         sx={{
-          width: "20%",
-          height: "20%",
+          width: "15%",
+          // height: "15%",
           position: "absolute",
           right: 0,
           zIndex: 3,

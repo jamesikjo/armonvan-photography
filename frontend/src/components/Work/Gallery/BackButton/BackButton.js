@@ -8,8 +8,8 @@ const BackButton = ({ handlePrevPhoto }) => {
         aria-label="left-arrow"
         onClick={handlePrevPhoto}
         sx={{
-          width: "20%",
-          height: "20%",
+          width: "15%",
+          // height: "15%",
           position: "absolute",
           left: 0,
           zIndex: 3,
