@@ -12,8 +12,8 @@ const Footer = ({ pages }) => {
         <Image
           src="/images/armonvan-footer-logo.png"
           alt="footer"
-          width={145}
-          height={60}
+          width={155}
+          height={55}
         />
       </Grid>
       <Grid item pb={1}>
