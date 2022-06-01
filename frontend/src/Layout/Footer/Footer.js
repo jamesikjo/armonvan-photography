@@ -8,12 +8,12 @@ const Footer = ({ pages }) => {
 
   return (
     <Grid container direction="column" alignItems="center">
-      <Grid item sx={{ height: 60 }}>
+      <Grid item>
         <Image
           src="/images/footer-logo.png"
           alt="footer"
-          width={150}
-          height={55}
+          width={130}
+          height={45}
         />
       </Grid>
       <Grid item pb={1}>

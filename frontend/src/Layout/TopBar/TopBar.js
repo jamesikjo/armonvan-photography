@@ -20,7 +20,7 @@ const TopBar = ({ open, handleClickOpen, handleClose, pages }) => {
               <Box component="a" title="Armon Van Photography">
                 <Box
                   component="img"
-                  src="/images/nav-logo.png"
+                  src="/images/nav-logo.svg"
                   sx={{ width: 280 }}
                 />
               </Box>
