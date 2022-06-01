@@ -24,29 +24,29 @@ const CategoryCard = ({ category }) => {
       }}
     >
       <Link href={`/work/${name}`} passHref>
-        <a>
+        <Box component="a">
           <Image
             src={getStrapiMedia(cover)}
             alt={name}
             width={cover.data.attributes.width}
             height={cover.data.attributes.height}
           />
-        </a>
+          <Typography
+            variant="h6"
+            noWrap
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              color: "#fff",
+              cursor: "pointer",
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
       </Link>
-      <Typography
-        variant="h6"
-        noWrap
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          color: "#fff",
-          cursor: "pointer",
-        }}
-      >
-        {title}
-      </Typography>
     </Box>
   );
 };
