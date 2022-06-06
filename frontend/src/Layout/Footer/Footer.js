@@ -7,7 +7,7 @@ const Footer = ({ pages }) => {
   const router = useRouter();
 
   return (
-    <Grid container direction="column" alignItems="center">
+    <Grid container direction="column" alignItems="center" pb={4}>
       <Grid item>
         <Image
           src="/images/armonvan-footer-logo.png"
