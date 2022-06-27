@@ -1,21 +1,25 @@
 import { IconButton } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
-const ForwardButton = ({ handleNextPhoto }) => {
+const ForwardButton = ({ handleForwardBtn }) => {
   return (
     <>
       <IconButton
         aria-label="right-arrow"
-        onClick={handleNextPhoto}
+        onClick={handleForwardBtn}
         sx={{
-          width: "15%",
-          // height: "15%",
           position: "absolute",
-          right: 0,
+          right: { xs: 0, lg: "10%", xl: "15%" },
           zIndex: 3,
+          p: 0,
         }}
       >
-        <NavigateNextIcon sx={{ fontSize: "5rem", color: "#fff" }} />
+        <NavigateNextIcon
+          sx={{
+            fontSize: { xs: "3.5rem", lg: "5rem", xl: "7rem" },
+            color: "#f7a047",
+          }}
+        />
       </IconButton>
     </>
   );

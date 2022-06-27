@@ -2,9 +2,9 @@ import React, { forwardRef } from "react";
 import Image from "next/image";
 import { Container, Dialog, Slide, Typography, Box } from "@mui/material/";
 import { getStrapiMedia } from "../../../lib/media";
-import BackButton from "./BackButton";
+import BackButton from "../ImageGallery/BackButton";
 import CloseDialogIcon from "./CloseDialogIcon";
-import ForwardButton from "./ForwardButton";
+import ForwardButton from "../ImageGallery/ForwardButton";
 
 export const Transition = forwardRef((props, ref) => (
   <Slide direction="up" ref={ref} {...props} />
@@ -61,7 +61,7 @@ const Gallery = ({
         <Typography color="secondary" variant="body1" gutterBottom>
           by Ramon Garcia
         </Typography>
-        {children} {/* //Thumbnails List */}
+        {children} {/* Thumbnails List */}
       </Container>
     </Dialog>
   );
