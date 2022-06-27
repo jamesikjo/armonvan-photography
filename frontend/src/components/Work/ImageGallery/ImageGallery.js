@@ -4,12 +4,12 @@ import { Box, Container, IconButton, Typography } from "@mui/material";
 import CurrentImage from "./CurrentImage";
 import BackButton from "./BackButton";
 import ForwardButton from "./ForwardButton";
-import Thumbnails from "../Gallery/Thumbnails";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import sideScroll from "../../../utils/sideScroll";
 import calculateThumbnailOffSet from "../../../utils/calculateThumbnailOffset";
 import calculateThumbnailScroll from "../../../utils/calculateThumbnailScroll";
 import { ENGAGE_SCROLL_VALUE } from "../../../utils/consts";
+import Thumbnails from "./Thumbnails";
 
 const ImageGallery = ({ photoList }) => {
   const [selectedIdx, setSelectedIdx] = useState(0);

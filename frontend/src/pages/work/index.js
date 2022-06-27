@@ -1,9 +1,8 @@
-import React from "react";
 import { fetchData } from "../../lib/fetchData";
 import { Container } from "@mui/material";
 import Layout from "../../Layout";
 import Categories from "../../components/Work/Categories";
-import Statement from "./../../components/Work/Statement/index";
+import { Statement } from "../../components/Work";
 
 const Work = ({ categories }) => {
   return (
