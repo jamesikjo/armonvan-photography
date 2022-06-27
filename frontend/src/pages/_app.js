@@ -26,7 +26,7 @@ export default function MyApp(props) {
         <title>Armon Van Photography</title>
         <meta
           name="description"
-          content="ArmonVan Photography - Photographer Portfolio"
+          content="ArmonVan Photography - Freelance Portfolio"
         />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link rel="icon" href="/icon.png" />

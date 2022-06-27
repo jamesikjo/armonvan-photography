@@ -1,12 +1,12 @@
 import { fetchData } from "../../lib/fetchData";
 import { Box } from "@mui/system";
-import ImageGallery from "../../components/Work/ImageGallery/ImageGallery";
+import ImageGallery from "../../components/Work/ImageGallery";
 
 const PhotoGallery = ({ photos }) => {
   const { data: photoList } = photos;
 
   return (
-    <Box bgcolor="#0A0A0A" height={"100vh"}>
+    <Box bgcolor="#000000" height={"100vh"}>
       <ImageGallery photoList={photoList} />
     </Box>
   );

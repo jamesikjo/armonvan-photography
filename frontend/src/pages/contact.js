@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "@mui/material";
 import Contact from "./../components/Contact/";
 import Layout from "../Layout";
