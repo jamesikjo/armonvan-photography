@@ -8,7 +8,10 @@ import ForwardButton from "./ForwardButton";
 import sideScroll from "../../../utils/sideScroll";
 import calculateThumbnailOffSet from "../../../utils/calculateThumbnailOffset";
 import calculateThumbnailScroll from "../../../utils/calculateThumbnailScroll";
-import { ENGAGE_SCROLL_VALUE } from "../../../utils/consts";
+import {
+  ENGAGE_SCROLL_VALUE,
+  THUMBNAIL_SIZE_TOTAL,
+} from "../../../utils/consts";
 import Thumbnails from "./Thumbnails";
 
 const ImageGallery = ({ photoList }) => {
@@ -54,10 +57,10 @@ const ImageGallery = ({ photoList }) => {
     );
 
     if (selectedIdx === 0) {
-      //show images in reverse when user clicks backbutton from the starting point (selectedIdx = 0)
+      //show the last photo when user clicks backbutton from the starting point (selectedIdx = 0)
       //scroll thumbnails to view the last image
+      thumbnailWrapperRef.current.scrollLeft = THUMBNAIL_SIZE_TOTAL * len;
       setSelectedIdx(len - 1);
-      thumbnailWrapperRef.current.scrollLeft = thumbnailScrollWidth;
       return;
     }
 
