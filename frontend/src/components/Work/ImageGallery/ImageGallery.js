@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { Box, Container, IconButton, Typography } from "@mui/material";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import CurrentImage from "./CurrentImage";
 import BackButton from "./BackButton";
 import ForwardButton from "./ForwardButton";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import sideScroll from "../../../utils/sideScroll";
 import calculateThumbnailOffSet from "../../../utils/calculateThumbnailOffset";
 import calculateThumbnailScroll from "../../../utils/calculateThumbnailScroll";
@@ -28,7 +28,7 @@ const ImageGallery = ({ photoList }) => {
 
     if (selectedIdx === len - 1) {
       //going forward from the last image will
-      //shift thumbnails back to starting image
+      //scroll thumbnails back to starting image
       thumbnailWrapperRef.current.scrollLeft = 0;
       return;
     }
@@ -36,7 +36,7 @@ const ImageGallery = ({ photoList }) => {
       thumbnailWrapperRef,
       selectedIdx + 1 //adding one here to access thumbnailIdx before selectedIdx state is updated
     );
-    //engage scrolling right only when
+    //engage scrolling to the right only when
     //selected thumbnail's right offset value is less than ENGAGE_SCROLL_VALUE
     if (offsetRight < ENGAGE_SCROLL_VALUE) {
       const distanceToCenter = calculateThumbnailScroll(
@@ -48,8 +48,6 @@ const ImageGallery = ({ photoList }) => {
   };
 
   const handleBackBtn = () => {
-    if (thumbnailClientWidth >= thumbnailScrollWidth) return;
-
     const { offsetLeft } = calculateThumbnailOffSet(
       thumbnailWrapperRef,
       selectedIdx
@@ -63,7 +61,7 @@ const ImageGallery = ({ photoList }) => {
       return;
     }
 
-    if (selectedIdx > 0) {
+    if (selectedIdx > 0 || selectedIdx < 0) {
       setSelectedIdx(selectedIdx - 1);
       if (offsetLeft < ENGAGE_SCROLL_VALUE) {
         const distanceToCenter = calculateThumbnailScroll(
