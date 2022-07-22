@@ -14,9 +14,9 @@
 ## Features
 
 - Content management powered by [Strapi](https://strapi.io) headless CMS.
+- Responsive photo gallery with synchronized thumbnail controls and scrolling into view on smaller viewports.
 - Images stored on [Cloudinary](https://cloudinary.com).
-- Responsive photo gallery with thumbnails that automatically scroll into view on smaller viewports.
-- Static pre-rendered pages with [Incremental Static Regeneration](https://vercel.com/docs/concepts/next.js/incremental-static-regeneration) (ISR) enabled.
+- Static pre-rendered pages with [Incremental Static Regeneration](https://vercel.com/docs/concepts/next.js/incremental-static-regeneration) (ISR).
 - Contact form integrated with [Sendgrid](https://sendgrid.com) API.
 
 ## Screenshots
