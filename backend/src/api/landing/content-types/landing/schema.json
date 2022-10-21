@@ -1,17 +1,17 @@
 {
   "kind": "singleType",
-  "collectionName": "landing_pages",
+  "collectionName": "landings",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "LandingPage"
+    "singularName": "landing",
+    "pluralName": "landings",
+    "displayName": "Landing"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "landing_photos": {
+    "photos": {
       "type": "component",
       "repeatable": true,
       "component": "shared.photo"

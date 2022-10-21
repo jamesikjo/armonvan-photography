@@ -4,7 +4,8 @@
   "info": {
     "singularName": "categ",
     "pluralName": "categs",
-    "displayName": "Categ"
+    "displayName": "Categ",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,9 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.category"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

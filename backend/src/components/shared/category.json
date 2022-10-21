@@ -2,7 +2,8 @@
   "collectionName": "components_shared_categories",
   "info": {
     "displayName": "category",
-    "icon": "folder-plus"
+    "icon": "folder-plus",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,9 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.photo"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
