@@ -16,14 +16,16 @@
       "component": "shared.photo"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "category": {
       "type": "enumeration",
       "enum": [
         "flora-and-landscapes",
         "lights-and-sounds"
-      ]
+      ],
+      "required": true
     }
   }
 }

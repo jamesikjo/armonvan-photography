@@ -14,8 +14,16 @@
   "attributes": {
     "category": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.category"
+      "repeatable": false,
+      "component": "category.category"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
     }
   }
 }
