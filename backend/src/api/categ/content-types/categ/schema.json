@@ -18,7 +18,14 @@
       "component": "shared.category"
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
     }
   }
 }

@@ -7,10 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "position": {
       "type": "integer"
     },
@@ -19,8 +15,15 @@
       "repeatable": true,
       "component": "shared.photo"
     },
-    "slug": {
+    "title": {
       "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "flora-and-landscapes",
+        "lights-and-sounds"
+      ]
     }
   }
 }
