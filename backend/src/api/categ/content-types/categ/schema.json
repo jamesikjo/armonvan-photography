@@ -16,16 +16,6 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.category"
-    },
-    "slug": {
-      "type": "string",
-      "unique": true,
-      "required": true
-    },
-    "title": {
-      "type": "string",
-      "unique": true,
-      "required": true
     }
   }
 }
