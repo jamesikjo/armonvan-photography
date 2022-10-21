@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "LandingPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "landing_photos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.photo"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categs",
+  "info": {
+    "singularName": "categ",
+    "pluralName": "categs",
+    "displayName": "Categ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "category": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.category"
+    }
+  }
+}
