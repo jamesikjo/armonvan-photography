@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "category": {
+    "collection": {
       "type": "component",
       "repeatable": false,
       "component": "category.category"

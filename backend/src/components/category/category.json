@@ -1,31 +1,16 @@
 {
   "collectionName": "components_shared_categories",
   "info": {
-    "displayName": "category",
+    "displayName": "collection",
     "icon": "folder-plus",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "position": {
-      "type": "integer"
-    },
     "images": {
       "type": "component",
       "repeatable": true,
       "component": "shared.photo"
-    },
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "flora-and-landscapes",
-        "lights-and-sounds"
-      ],
-      "required": true
     }
   }
 }
