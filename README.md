@@ -20,7 +20,7 @@
 - Content management powered by [Strapi](https://strapi.io) headless CMS.
 - Static pre-rendered pages with [Incremental Static Regeneration](https://vercel.com/docs/concepts/next.js/incremental-static-regeneration) (ISR).
 - Images stored on [Cloudinary](https://cloudinary.com).
-- Contact form integrated with [Sendgrid](https://sendgrid.com) API.
+- Contact form service using [Sendgrid](https://sendgrid.com) API as serverless integration.
 - Responsive photo gallery with synchronized thumbnail controls and scrolling into view on smaller viewports.
 
 ## Project Overview
