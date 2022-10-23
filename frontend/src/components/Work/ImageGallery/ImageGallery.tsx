@@ -110,7 +110,6 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
             layout="fill"
             objectFit="contain"
             quality={100}
-            priority
             // width={currentPhoto.data.attributes.width}
             // height={currentPhoto.data.attributes.height}
           />
