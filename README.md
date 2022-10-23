@@ -6,10 +6,14 @@
 
 ## Technologies
 
-- **Framework**: [Next.js](https://nextjs.org)
+- **Framework**:
+  - [Next.js](https://nextjs.org)
+  - [TypeScript](https://nextjs.org/docs/basic-features/typescript)
 - **Styling**: [MUI](https://mui.org)
 - **CMS**: [Strapi](https://strapi.com)
-- **Deployment**: [Vercel](https://vercel.com) & [Heroku](https://heroku.com)
+- **Deployment**:
+  - Frontend: [Vercel](https://vercel.com)
+  - Backend: [Heroku](https://heroku.com)
 
 ## Features
 
@@ -24,11 +28,11 @@
 **frontend/**
 
 - `pages/api/*` - [API Routes](https://nextjs.org/blog/next-9#api-routes) powering contact form submissions.
-- `pages/work*` - Static pre-rendered photo gallery pages generated with data fetched from Strapi.
+- `pages/[category]*` - Static pre-rendered photo galleries generated with data fetched from Strapi.
 - `pages/*` - All other static pages.
 - `src/components/*` - Various components used throughout the site.
 - `src/lib/*` - Code for Strapi services.
-- `src/utils/*` - Utilities for photo gallery thumnbail scrolling.
+- `src/utils/*` - Helper functions for photo gallery thumbnail scrolling.
 - `src/theme.js` - MUI custom component styles for application.
 - `public/*` - Static assets.
 
