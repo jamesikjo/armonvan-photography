@@ -1,3 +1,4 @@
+import type { GetStaticProps } from "next";
 import { Box } from "@mui/system";
 import Landing from "../components/Landing";
 import Layout from "../Layout";
@@ -19,7 +20,7 @@ export default function Home({ landingPhotos }: APICall) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res: { data: LandingPhotos } = await fetchData("/landing", {
     populate: {
       photos: {
