@@ -22,9 +22,9 @@ const BackButton = ({ handleBackBtn }: ButtonProps) => {
         }}
       >
         <NavigateBeforeIcon
+          color="warning"
           sx={{
             fontSize: { xs: "3.5rem", lg: "5rem" },
-            color: "#f7a047",
           }}
         />
       </IconButton>

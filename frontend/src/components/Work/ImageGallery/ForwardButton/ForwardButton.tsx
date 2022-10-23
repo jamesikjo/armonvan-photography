@@ -22,9 +22,9 @@ const ForwardButton = ({ handleForwardBtn }: ButtonProps) => {
         }}
       >
         <NavigateNextIcon
+          color="warning"
           sx={{
             fontSize: { xs: "3.5rem", lg: "5rem" },
-            color: "#f7a047",
           }}
         />
       </IconButton>
