@@ -23,7 +23,7 @@ const NavLinks = ({ pages, handleClose }: NavLinksProps) => {
             disableRipple
             onClick={handleClose}
             sx={{
-              ...(router.pathname === path && { fontweight: "bold" }),
+              ...(router.pathname === path && { fontWeight: "bold" }),
               "&:hover": {
                 backgroundColor: "transparent",
                 fontWeight: "bold",

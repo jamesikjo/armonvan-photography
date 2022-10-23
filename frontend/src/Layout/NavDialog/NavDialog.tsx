@@ -43,7 +43,7 @@ const NavDialog = ({ openNavDialog, handleClose, pages }: NavDialogProps) => {
                 color="primary"
                 onClick={handleClose}
                 sx={{
-                  ...(router.pathname === path && { fontweight: "bold" }),
+                  ...(router.pathname === path && { fontWeight: "bold" }),
                   "&:hover": {
                     backgroundColor: "transparent",
                     fontWeight: "bold",
