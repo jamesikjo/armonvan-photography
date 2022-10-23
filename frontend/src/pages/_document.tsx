@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content="#F7F9FC" />
-
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             rel="stylesheet"
@@ -21,6 +21,8 @@ export default class MyDocument extends Document {
           />
           {/* Add in global metadata */}
           <link rel="icon" href="/icon.png" />
+          <meta name="emotion-insertion-point" content="" />
+          {(this.props as any).emotionStyleTags}
         </Head>
         <body style={{ backgroundColor: "#F7F9FC", padding: 0, margin: 0 }}>
           <Main />
