@@ -1,7 +1,13 @@
 import React, { useState, useRef } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/router";
-import { Box, Container, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  IconButton,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import BackButton from "./BackButton";
 import ForwardButton from "./ForwardButton";
@@ -24,6 +30,7 @@ interface ImageGalleryProps {
 
 const ImageGallery = ({ photoList }: ImageGalleryProps) => {
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const [imageLoad, setImageLoad] = useState(true);
   const router = useRouter();
 
   const thumbnailWrapperRef = useRef<HTMLDivElement>(null!);
@@ -100,16 +107,29 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
         pb={5}
         sx={{
           minHeight: { xs: 350, md: 500, lg: 666 },
-          minWidth: { xs: 1, sm: 1, md: 600, lg: 800 },
+          minWidth: { xs: 1, sm: 1, md: 600, lg: 999 },
         }}
       >
         <Box width={1} height={1} position="relative">
           {/* render current/selected image */}
+          {!imageLoad ? (
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                right: "50%",
+                transform: "translate(50%, -50%)",
+              }}
+            >
+              <CircularProgress size={35} color="warning" />
+            </Box>
+          ) : null}
           <NextImage
             src={getStrapiMedia(currentPhoto)}
             layout="fill"
             objectFit="contain"
             quality={100}
+            onLoadingComplete={() => setImageLoad(false)}
             // width={currentPhoto.data.attributes.width}
             // height={currentPhoto.data.attributes.height}
           />
