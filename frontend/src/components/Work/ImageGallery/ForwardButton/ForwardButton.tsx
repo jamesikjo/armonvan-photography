@@ -15,7 +15,7 @@ const ForwardButton = ({ handleForwardBtn }: ButtonProps) => {
           height: 1,
           p: 0,
           position: "absolute",
-          right: { xs: 0, md: "-10%", lg: "-15%" },
+          right: { xs: 0, sm: "5%", xl: "10%" },
           top: "50%",
           transform: "translate(0%, -50%)",
           zIndex: 3,

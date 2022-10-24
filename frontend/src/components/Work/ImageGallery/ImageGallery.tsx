@@ -104,10 +104,10 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
       sx={{ overflowY: "auto" }}
     >
       <Box
-        pb={5}
+        mb={{ xs: 1, sm: 5 }}
         sx={{
-          minHeight: { xs: 350, md: 500, lg: 666 },
-          minWidth: { xs: 1, sm: 1, md: 600, lg: 999 },
+          minHeight: { xs: 360, sm: 560, lg: 666 },
+          minWidth: 1,
         }}
       >
         <Box width={1} height={1} position="relative">
