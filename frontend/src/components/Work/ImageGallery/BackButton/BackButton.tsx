@@ -15,7 +15,7 @@ const BackButton = ({ handleBackBtn }: ButtonProps) => {
           height: 1,
           p: 0,
           position: "absolute",
-          left: { xs: 0, lg: "-20%" },
+          left: { xs: 0, md: "-10%", lg: "-15%" },
           top: "50%",
           transform: "translate(0%, -50%)",
           zIndex: 3,
