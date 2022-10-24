@@ -21,11 +21,6 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
     <CacheProvider value={emotionCache}>
       <Head>
         {/* global default head values  */}
-        <title>Armon Van Photography</title>
-        <meta
-          name="description"
-          content="ArmonVan Photography - Freelance Portfolio"
-        />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>

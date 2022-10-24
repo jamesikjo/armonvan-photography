@@ -12,7 +12,7 @@ interface APICall {
 export default function Home({ landingPhotos }: APICall) {
   const { photos } = landingPhotos.attributes;
   return (
-    <Layout title="Home">
+    <Layout>
       <Box pb={5}>
         <Landing landingPhotos={photos} />
       </Box>

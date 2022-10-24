@@ -1,4 +1,5 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
+import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 import { fetchData } from "../../lib/fetchData";
 import { Box } from "@mui/system";
@@ -11,11 +12,17 @@ interface APICall {
 
 const PhotoGallery = ({ singleCategory }: APICall) => {
   const { images } = singleCategory.attributes.collection;
+  console.log(singleCategory);
 
   return (
-    <Box bgcolor="#020303 " height="100vh">
-      <ImageGallery photoList={images} />
-    </Box>
+    <>
+      <Head>
+        <title>{singleCategory.attributes.title}</title>
+      </Head>
+      <Box bgcolor="#020303 " height="100vh">
+        <ImageGallery photoList={images} />
+      </Box>
+    </>
   );
 };
 export default PhotoGallery;

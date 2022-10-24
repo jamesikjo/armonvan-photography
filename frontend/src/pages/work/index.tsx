@@ -14,7 +14,7 @@ const Work = ({ workData }: APICall) => {
   const { category_card, title, subtitle } = workData.attributes;
 
   return (
-    <Layout title="Work">
+    <Layout title="Work | Gallery">
       <Container maxWidth="md" sx={{ py: { xs: 3, sm: 5, md: 8 } }}>
         <Statement title={title} subtitle={subtitle} />
         <Categories category_card={category_card} />

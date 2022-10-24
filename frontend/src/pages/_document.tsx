@@ -9,19 +9,44 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content="#F7F9FC" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             rel="stylesheet"
           />
+          <link rel="icon" href="/favicons/favicon.ico" />
+
           <link
-            href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap"
-            rel="stylesheet"
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicons/apple-touch-icon.png"
           />
-          {/* Add in global metadata */}
-          <link rel="icon" href="/icon.png" />
+          <link
+            rel="icon"
+            type="/favicons/image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicons/favicon-16x16.png"
+          />
+          <link rel="manifest" href="/favicons/site.webmanifest" />
+          <link
+            rel="mask-icon"
+            href="/favicons/safari-pinned-tab.svg"
+            color="#f7a047"
+          />
+          <link rel="manifest" href="/favicons/site.webmanifest" />
+
           <meta name="emotion-insertion-point" content="" />
+
+          <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
+          <meta name="theme-color" content="#F7F9FC" />
+          <meta name="msapplication-TileColor" content="#f7a047/" />
+
           {(this.props as any).emotionStyleTags}
         </Head>
         <body style={{ backgroundColor: "#F7F9FC", padding: 0, margin: 0 }}>
