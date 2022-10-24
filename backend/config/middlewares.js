@@ -1,5 +1,13 @@
 module.exports = [
   "strapi::errors",
+  "strapi::cors",
+  "strapi::poweredBy",
+  "strapi::logger",
+  "strapi::query",
+  "strapi::body",
+  "strapi::session",
+  "strapi::favicon",
+  "strapi::public",
   //modify contentSecurityPolicy settings to see thumbnail previews in the Strapi Media Library.
   {
     name: "strapi::security",
@@ -27,13 +35,4 @@ module.exports = [
       },
     },
   },
-  "strapi::security",
-  "strapi::cors",
-  "strapi::poweredBy",
-  "strapi::logger",
-  "strapi::query",
-  "strapi::body",
-  "strapi::session",
-  "strapi::favicon",
-  "strapi::public",
 ];
