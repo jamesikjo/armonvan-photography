@@ -11,7 +11,7 @@ interface PhotoModalProps {
 }
 
 const PhotoModal = ({ image, open, handleModalClose }: PhotoModalProps) => {
-  const { alternativeText, width, height, name } = image.data.attributes;
+  const { width, height, name } = image.data.attributes;
 
   return (
     <>
@@ -19,7 +19,6 @@ const PhotoModal = ({ image, open, handleModalClose }: PhotoModalProps) => {
         aria-labelledby={`transition-modal-${name}`}
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
         open={open}
-        // onClose={handleModalClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -39,7 +38,7 @@ const PhotoModal = ({ image, open, handleModalClose }: PhotoModalProps) => {
           />
           <IconButton
             onClick={handleModalClose}
-            sx={{ position: "absolute", top: "2%", left: "4%", color: "#fff" }}
+            sx={{ position: "absolute", top: "2%", right: "4%", color: "#fff" }}
           >
             <CloseIcon sx={{ fontSize: "3rem" }} />
           </IconButton>
