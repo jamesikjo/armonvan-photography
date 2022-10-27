@@ -11,8 +11,6 @@ interface PhotoCardProps {
 }
 
 const PhotoCard = ({ image }: PhotoCardProps) => {
-  const { alternativeText } = image.data.attributes;
-
   const [open, setOpen] = useState(false);
 
   const handleModalOpen = () => {
