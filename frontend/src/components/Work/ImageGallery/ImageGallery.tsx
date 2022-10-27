@@ -160,7 +160,7 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
       </Container>
 
       <IconButton
-        onClick={() => router.push("/work")}
+        onClick={() => router.back()}
         sx={{
           position: "absolute",
           top: 15,
