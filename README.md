@@ -37,6 +37,7 @@
 - `public/*` - Static assets.
 
 ## Screenshots
+**<div>Mobile Responsive Gallery:</div>**
 
 <img src="https://user-images.githubusercontent.com/57969414/183147872-21d0d070-7261-44a2-af20-e6e91d564fca.gif" alt="Gallery Preview Video" width="650px">
 
