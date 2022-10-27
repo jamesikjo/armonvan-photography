@@ -40,7 +40,7 @@ const PhotoModal = ({ image, open, handleModalClose }: PhotoModalProps) => {
             onClick={handleModalClose}
             sx={{ position: "absolute", top: "2%", right: "4%", color: "#fff" }}
           >
-            <CloseIcon sx={{ fontSize: "3rem" }} />
+            <CloseIcon color="secondary" sx={{ fontSize: "2.5rem" }} />
           </IconButton>
         </Box>
       </Modal>

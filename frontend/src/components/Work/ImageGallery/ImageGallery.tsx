@@ -9,6 +9,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import CloseIcon from "@mui/icons-material/Close";
 import BackButton from "./BackButton";
 import ForwardButton from "./ForwardButton";
 import sideScroll from "../../../utils/sideScroll";
@@ -112,6 +113,7 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
       >
         <Box width={1} height={1} position="relative">
           {/* render current/selected image */}
+          {/* display loading indicator while <NextImage> is loading */}
           {!imageLoad ? (
             <Box
               sx={{
@@ -163,11 +165,11 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
         onClick={() => router.back()}
         sx={{
           position: "absolute",
-          top: 15,
-          left: 10,
+          top: "2%",
+          right: "4%",
         }}
       >
-        <KeyboardBackspaceIcon sx={{ color: "#F5F5F5", fontSize: "2em" }} />
+        <CloseIcon color="secondary" sx={{ fontSize: "1.6em" }} />
       </IconButton>
     </Box>
   );
