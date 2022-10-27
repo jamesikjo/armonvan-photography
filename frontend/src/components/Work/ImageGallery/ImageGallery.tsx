@@ -8,7 +8,6 @@ import {
   Typography,
   CircularProgress,
 } from "@mui/material";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import CloseIcon from "@mui/icons-material/Close";
 import BackButton from "./BackButton";
 import ForwardButton from "./ForwardButton";
@@ -34,29 +33,40 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
   const [imageLoad, setImageLoad] = useState(true);
   const router = useRouter();
 
+  const len = photoList.length;
+  const currentPhoto = photoList[selectedIdx].image;
+
   const thumbnailWrapperRef = useRef<HTMLDivElement>(null!);
 
   const thumbnailClientWidth: number =
     thumbnailWrapperRef?.current?.clientWidth;
+
   const thumbnailScrollWidth: number =
     thumbnailWrapperRef?.current?.scrollWidth;
 
-  const currentPhoto = photoList[selectedIdx].image;
-  const len = photoList.length;
+  const handleBtnClick = (step: number) => {
+    let idx = selectedIdx;
+    idx += step;
+
+    if (idx < 0) {
+      setSelectedIdx(len - (Math.abs(idx) % len));
+    } else {
+      setSelectedIdx((idx %= len));
+    }
+  };
 
   const handleForwardBtn = () => {
-    setSelectedIdx((selectedIdx + 1) % len);
+    handleBtnClick(1);
     if (thumbnailClientWidth >= thumbnailScrollWidth) return;
-
     if (selectedIdx === len - 1) {
-      //forward button at the last thumbnail will
-      //scroll thumbnails back to starting image
+      //going foward from last thumbnail position will
+      //scroll thumbnails back to starting point
       thumbnailWrapperRef.current.scrollLeft &&= 0;
       return;
     }
     const { offsetRight } = calculateThumbnailOffset(
       thumbnailWrapperRef,
-      selectedIdx + 1 //get next thumbnail before selectedIdx state is updated
+      selectedIdx + 1 //grab upcoming thumbnail
     );
     //engage scrolling to the right only when
     //selected thumbnail's right offset value is less than ENGAGE_SCROLL_VALUE
@@ -74,16 +84,13 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
       thumbnailWrapperRef,
       selectedIdx
     );
-
     if (selectedIdx === 0) {
       //show the last photo when user clicks backbutton from the starting point (selectedIdx = 0)
       //scroll thumbnails to view the last image
       thumbnailWrapperRef.current.scrollLeft = THUMBNAIL_SIZE_TOTAL * len;
-      setSelectedIdx(len - 1);
+      handleBtnClick(-1);
       return;
-    } else {
-      setSelectedIdx(selectedIdx - 1);
-    }
+    } else handleBtnClick(-1);
 
     if (offsetLeft < ENGAGE_SCROLL_VALUE) {
       const distanceToCenter = calculateThumbnailScroll(
