@@ -6,9 +6,8 @@
 
 ## Technologies
 
-- **Framework**:
-  - [Next.js](https://nextjs.org)
-  - [TypeScript](https://nextjs.org/docs/basic-features/typescript)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Framework**: [Next.js](https://nextjs.org)
 - **Styling**: [MUI](https://mui.org)
 - **CMS**: [Strapi](https://strapi.com)
 - **Deployment**:
