@@ -12,7 +12,7 @@ const PAGES = [
   { title: "Contact", path: "/contact" },
   {
     title: "Upload",
-    path: "https://armonvan-photo.herokuapp.com/admin",
+    path: process.env.NEXT_PUBLIC_STRAPI_API_URL + "/admin",
   },
 ];
 
