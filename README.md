@@ -12,7 +12,7 @@
 - **CMS**: [Strapi](https://strapi.com)
 - **Deployment**:
   - Frontend: [Vercel](https://vercel.com)
-  - Backend: [Heroku](https://heroku.com)
+  - Backend: [Railway](https://railway.app)
 
 ## Features
 
