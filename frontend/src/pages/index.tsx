@@ -6,7 +6,7 @@ import { fetchData } from "../lib/fetchData";
 import { Landing as LandingPhotos } from "../types/strapi/Landing";
 
 interface APICall {
-  landingPhotos: LandingPhotos; //Landing renamed -> LandingPhotos (see import)
+  [key: string]: LandingPhotos; //Landing renamed -> LandingPhotos (see import)
 }
 
 export default function Home({ landingPhotos }: APICall) {
@@ -29,9 +29,11 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     },
   });
+
+  const landingPhotos = res.data;
   return {
     props: {
-      landingPhotos: res.data,
+      landingPhotos,
     },
     revalidate: 30,
   };
