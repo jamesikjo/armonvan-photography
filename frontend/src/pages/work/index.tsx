@@ -1,9 +1,8 @@
 import type { GetStaticProps } from "next";
 import { fetchData } from "../../lib/fetchData";
-import { Container } from "@mui/material";
+import { Box, Container, useTheme, useMediaQuery } from "@mui/material";
 import Layout from "../../Layout";
-import Categories from "../../components/Work/Categories";
-import { Statement } from "../../components/Work";
+import { Statement, CategoryColumn } from "../../components/Work";
 import { Work as WorkData } from "../../types/strapi/Work";
 
 interface APICall {
@@ -13,13 +12,26 @@ interface APICall {
 const Work = ({ workData }: APICall) => {
   const { category_card, title, subtitle } = workData.attributes;
 
+  const theme = useTheme();
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+    defaultMatches: true,
+  });
+
   return (
-    <Layout title="Work | Gallery">
-      <Container maxWidth="md" sx={{ py: { xs: 3, sm: 5, md: 8 } }}>
-        <Statement title={title} subtitle={subtitle} />
-        <Categories category_card={category_card} />
-      </Container>
-    </Layout>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      minHeight="100vh"
+      mt={isMd ? 0 : 14}
+    >
+      <Layout title="Work | Gallery">
+        <Container maxWidth="lg">
+          <Statement title={title} subtitle={subtitle} />
+          <CategoryColumn category_data={category_card} />
+        </Container>
+      </Layout>
+    </Box>
   );
 };
 
@@ -38,6 +50,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       workData: workRes.data,
     },
-    revalidate: 15,
+    revalidate: 30,
   };
 };

@@ -9,7 +9,7 @@ export interface Work {
 }
 
 export interface Category_Card {
-  id: number;
+  id?: number;
   slug: string;
   title: string;
   thumbnail: Image;
