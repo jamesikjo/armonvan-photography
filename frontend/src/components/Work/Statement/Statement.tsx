@@ -5,19 +5,17 @@ type StatementProps = Pick<Work["attributes"], "title" | "subtitle">;
 
 const Statement = ({ title, subtitle }: StatementProps) => {
   return (
-    <Box maxWidth="sm" margin="auto">
+    <Box maxWidth="lg" margin="auto">
       <Typography
-        variant="h5"
+        variant="h4"
         component="h2"
         color="primary"
         fontWeight="bold"
-        align="center"
-        mb={1.25}
-        sx={{ letterSpacing: "0.15rem" }}
+        mb={2}
       >
-        {title}
+        Gallery
       </Typography>
-      <Typography variant="subtitle1" color="secondary" align="center" mb={4}>
+      <Typography variant="subtitle1" color="primary" mb={4}>
         {subtitle}
       </Typography>
     </Box>

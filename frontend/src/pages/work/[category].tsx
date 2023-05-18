@@ -12,7 +12,6 @@ interface APICall {
 
 const PhotoGallery = ({ singleCategory }: APICall) => {
   const { images } = singleCategory.attributes.collection;
-
   return (
     <>
       <Head>
@@ -59,6 +58,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       singleCategory: singleCategoryRes.data[0],
     },
-    revalidate: 15,
+    revalidate: 30,
   };
 };

@@ -9,7 +9,17 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+            as="style"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             rel="stylesheet"
@@ -44,8 +54,8 @@ export default class MyDocument extends Document {
           <meta name="emotion-insertion-point" content="" />
 
           <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
-          <meta name="theme-color" content="#F7F9FC" />
-          <meta name="msapplication-TileColor" content="#f7a047/" />
+          <meta name="theme-color" content="#F6F4F1" />
+          <meta name="msapplication-TileColor" content="#f7a047" />
 
           {(this.props as any).emotionStyleTags}
         </Head>

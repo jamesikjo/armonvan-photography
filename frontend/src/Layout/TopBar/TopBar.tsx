@@ -4,8 +4,8 @@ import {
   IconButton,
   Toolbar,
   Box,
-  Divider,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavLinks from "../NavLinks";
@@ -15,15 +15,25 @@ interface TopBarProps {
   handleClickOpen: () => void;
   handleClose: () => void;
   pages: Page[];
+  colorInvert: boolean;
 }
-const TopBar = ({ handleClickOpen, handleClose, pages }: TopBarProps) => {
-  const mediaXXS = useMediaQuery("(max-width:300px)");
+const TopBar = ({
+  handleClickOpen,
+  handleClose,
+  pages,
+  colorInvert,
+}: TopBarProps) => {
+  const theme = useTheme();
+  const isSm = useMediaQuery(theme.breakpoints.up("sm"), {
+    defaultMatches: true,
+  });
+
   return (
     <>
       <Container maxWidth="lg" component="nav">
         <Toolbar
           sx={{
-            height: 75,
+            height: 65,
             lineHeight: 0,
           }}
           disableGutters
@@ -34,13 +44,22 @@ const TopBar = ({ handleClickOpen, handleClose, pages }: TopBarProps) => {
                 <Box
                   component="img"
                   src="/images/main-logo.png"
-                  sx={{ width: mediaXXS ? 200 : 280 }}
+                  sx={{
+                    width: isSm ? 280 : 240,
+                    filter: !colorInvert
+                      ? "none"
+                      : "invert(100%) sepia(100%) saturate(0%) hue-rotate(152deg) brightness(160%) contrast(103%)",
+                  }}
                 />
               </Box>
             </Link>
           </Box>
           <Box sx={{ display: { xs: "none", md: "block" } }}>
-            <NavLinks pages={pages} handleClose={handleClose} />
+            <NavLinks
+              pages={pages}
+              handleClose={handleClose}
+              colorInvert={colorInvert}
+            />
           </Box>
 
           {/*open nav menu dialog on small to medium screensizes */}
@@ -48,12 +67,14 @@ const TopBar = ({ handleClickOpen, handleClose, pages }: TopBarProps) => {
           <IconButton
             aria-label="menu"
             onClick={handleClickOpen}
-            sx={{ display: { xs: "inline-flex", md: "none" } }}
+            sx={{
+              display: { xs: "inline-flex", md: "none" },
+              color: !colorInvert ? theme.palette.primary.main : "#f9f9f9",
+            }}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
-        <Divider sx={{ mb: 3 }} />
       </Container>
     </>
   );

@@ -19,6 +19,20 @@ const theme = createTheme({
     h6: {
       fontSize: "1.2rem",
     },
+    body1: {
+      lineHeight: "1.65rem",
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            backgroundColor: "transparent",
+          },
+        },
+      },
+    },
   },
 });
 
