@@ -11,11 +11,12 @@ export default class MyDocument extends Document {
           {/* PWA primary color */}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
+            rel="preload"
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-            rel="stylesheet"
+            as="style"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             rel="stylesheet"
           />
           <link rel="icon" href="/favicons/favicon.ico" />
