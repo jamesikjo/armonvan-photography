@@ -1,20 +1,16 @@
-import { Box, Container, useTheme, useMediaQuery } from "@mui/material";
+import { Box, Container, useMediaQuery } from "@mui/material";
 import Contact from "../components/Contact";
 import Layout from "../Layout";
 
 const ContactPage = () => {
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
-    defaultMatches: true,
-  });
+  const mediaXXS = useMediaQuery("(max-width:390px)");
 
   return (
     <Box
       display="flex"
       flexDirection="column"
       justifyContent="center"
-      minHeight="100vh"
-      mt={isMd ? 0 : 14}
+      mt={mediaXXS ? 14 : 0}
     >
       <Layout title="Contact">
         <Container maxWidth="sm">
