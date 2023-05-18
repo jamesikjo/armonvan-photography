@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Box } from "@mui/material";
+import { Box, AppBar, useScrollTrigger, Divider } from "@mui/material";
 import TopBar from "./TopBar";
 import NavDialog from "./NavDialog";
 import Footer from "./Footer";
@@ -17,8 +17,8 @@ const PAGES = [
 ];
 
 const meta = {
-  title: "ArmonVan Photography",
-  description: "ArmonVan Photography - Portfolio",
+  title: "AV Photography",
+  description: "Armon Van - Photographer",
   image: "/images/armonvan-footer-logo.png",
   type: "website",
 };
@@ -27,11 +27,17 @@ interface LayoutProps {
   children: JSX.Element;
   title?: string;
   description?: string;
+  colorInvert?: boolean;
 }
 
-const Layout = ({ children, title }: LayoutProps) => {
+const Layout = ({ children, title, colorInvert = false }: LayoutProps) => {
   const [openNavDialog, setOpenNavDialog] = useState<boolean>(false);
   const router = useRouter();
+
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 38,
+  });
 
   const handleClickOpen = () => {
     setOpenNavDialog(true);
@@ -56,7 +62,7 @@ const Layout = ({ children, title }: LayoutProps) => {
         />
         <meta property="og:title" content={title || meta.title} />
         <meta property="og:description" content={meta.description} />
-        <meta property="og:site_name" content="ArmonVan Photography" />
+        <meta property="og:site_name" content="AV Photography" />
         <meta property="og:type" content={meta.type} />
         <meta property="og:image" content={meta.image} />
         <meta property="twitter:card" content="summary_large_image" />
@@ -69,30 +75,43 @@ const Layout = ({ children, title }: LayoutProps) => {
         <meta property="twitter:image" content={meta.image} />
       </Head>
 
-      {/* navigation dialog menu for mobile view */}
-      <NavDialog
-        openNavDialog={openNavDialog}
-        handleClose={handleClose}
-        pages={PAGES}
-      />
-      <TopBar
-        pages={PAGES}
-        handleClickOpen={handleClickOpen}
-        handleClose={handleClose}
-      />
+      <Box display="flex" flexDirection="column" minHeight="100vh">
+        <AppBar
+          // position="sticky"
+          sx={{
+            top: 0,
+            transition: "background-color 0.7s, box-shadow 0.7s",
+            boxShadow: trigger ? "0px 1px 5px -1px rgba(0, 0, 0, 0.2)" : "none",
+            backgroundColor: trigger ? "#F7F9FC" : "transparent",
+          }}
+        >
+          <TopBar
+            pages={PAGES}
+            handleClickOpen={handleClickOpen}
+            handleClose={handleClose}
+            colorInvert={trigger ? false : colorInvert}
+          />
+        </AppBar>
 
-      <Box
-        component="main"
-        sx={{
-          display: "flex",
-          flexGrow: 1,
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        {children}
+        {/* navigation dialog menu for mobile view */}
+        <NavDialog
+          openNavDialog={openNavDialog}
+          handleClose={handleClose}
+          pages={PAGES}
+        />
+
+        <Box
+          component="main"
+          flexGrow={1}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+        >
+          {children}
+        </Box>
+        <Divider sx={{ mt: 4 }} />
+        <Footer pages={PAGES} />
       </Box>
-      <Footer pages={PAGES} />
     </>
   );
 };

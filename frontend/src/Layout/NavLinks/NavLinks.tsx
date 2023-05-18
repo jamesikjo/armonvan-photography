@@ -7,9 +7,10 @@ import { Page } from "../../types/strapi/Shared";
 interface NavLinksProps {
   handleClose: () => void;
   pages: Page[];
+  colorInvert: boolean;
 }
 
-const NavLinks = ({ pages, handleClose }: NavLinksProps) => {
+const NavLinks = ({ pages, handleClose, colorInvert }: NavLinksProps) => {
   const router = useRouter();
   const theme = useTheme();
 
@@ -24,6 +25,7 @@ const NavLinks = ({ pages, handleClose }: NavLinksProps) => {
             onClick={handleClose}
             sx={{
               ...(router.pathname === path && { fontWeight: "bold" }),
+              color: !colorInvert ? theme.palette.primary.main : "#f9f9f9",
               "&:hover": {
                 backgroundColor: "transparent",
                 fontWeight: "bold",
@@ -35,17 +37,13 @@ const NavLinks = ({ pages, handleClose }: NavLinksProps) => {
         </Link>
       ))}
       <IconButton
-        color="secondary"
         aria-label="instagram"
         href="https://www.instagram.com/lurking.glass/"
         target="_blank"
         onClick={handleClose}
         disableRipple
         sx={{
-          "&:hover": {
-            color: theme.palette.primary.main,
-            backgroundColor: "transparent",
-          },
+          color: !colorInvert ? theme.palette.primary.main : "#f9f9f9",
         }}
       >
         <InstagramIcon fontSize="small" />

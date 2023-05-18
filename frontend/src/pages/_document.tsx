@@ -14,6 +14,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
           <link rel="icon" href="/favicons/favicon.ico" />
 
           <link
@@ -44,8 +48,8 @@ export default class MyDocument extends Document {
           <meta name="emotion-insertion-point" content="" />
 
           <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
-          <meta name="theme-color" content="#F7F9FC" />
-          <meta name="msapplication-TileColor" content="#f7a047/" />
+          <meta name="theme-color" content="#F6F4F1" />
+          <meta name="msapplication-TileColor" content="#f7a047" />
 
           {(this.props as any).emotionStyleTags}
         </Head>
