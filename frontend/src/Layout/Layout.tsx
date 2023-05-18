@@ -102,15 +102,15 @@ const Layout = ({ children, title, colorInvert = false }: LayoutProps) => {
 
         <Box
           component="main"
-          flexGrow={1}
           display="flex"
           flexDirection="column"
           justifyContent="center"
+          flexGrow={1}
         >
           {children}
         </Box>
         <Divider sx={{ mt: 4 }} />
-        <Footer pages={PAGES} />
+        <Footer />
       </Box>
     </>
   );

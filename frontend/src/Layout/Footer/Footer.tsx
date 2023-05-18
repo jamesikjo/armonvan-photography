@@ -1,16 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { Box, Typography, Container } from "@mui/material";
 import { Page } from "../../types/strapi/Shared";
 
-interface FooterProps {
-  pages: Page[];
-}
+// interface FooterProps {
+//   pages: Page[];
+// }
 
-const Footer = ({ pages }: FooterProps) => {
-  const router = useRouter();
-
+const Footer = () => {
   return (
     <Box component="footer" py={2}>
       <Container
