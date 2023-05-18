@@ -20,7 +20,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             as="style"
           />
-
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+            rel="stylesheet"
+          />
           <link rel="icon" href="/favicons/favicon.ico" />
 
           <link
