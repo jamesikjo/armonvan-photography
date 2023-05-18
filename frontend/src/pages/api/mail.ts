@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import mail from "@sendgrid/mail";
 
-mail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY as string);
+mail.setApiKey(process.env.SENDGRID_API_KEY as string);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const body = JSON.parse(req.body);
