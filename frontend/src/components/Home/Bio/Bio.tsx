@@ -39,7 +39,9 @@ const Bio = () => {
                       Gallery
                     </Button>
                   </Link>
-                  <Button type="submit">Contact</Button>
+                  <Link href="/contact" passHref>
+                    <Button type="submit">Contact</Button>
+                  </Link>
                 </Box>
               </Grid>
             </Grid>
