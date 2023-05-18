@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Image from "next/image";
+/* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 import { useFormik, FormikHelpers } from "formik";
 import * as yup from "yup";
-import { Button, Container, Grid, TextField, Typography } from "@mui/material/";
+import { Button, Grid, TextField, Typography } from "@mui/material/";
 import SuccessToast from "./SuccessToast";
 
 const validationSchema = yup.object({
@@ -67,33 +67,23 @@ const Contact = () => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <Grid
-        container
-        justifyContent="center"
-        alignItems="center"
-        sx={{ padding: { xs: 2, lg: 0 } }}
-      >
-        <Grid
-          item
-          container
-          lg={6}
-          direction="column"
-          sx={{ maxWidth: { xs: 550, lg: 1 }, pb: { xs: 5, lg: 0 } }}
-        >
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item container direction="column">
           <Grid item mb={1}>
             <Typography
-              variant="h5"
+              variant="h4"
+              component="h2"
               color="primary"
               fontWeight="bold"
-              gutterBottom
-              sx={{ letterSpacing: "0.15rem" }}
+              mb={2}
             >
-              CONTACT
+              Contact
             </Typography>
 
             <Typography variant="subtitle1" color="primary">
-              Do you have a question or would you like to collaborate in one way
-              or another? I would love to hear from you.
+              Whether you need a photographer or are interested in a creative
+              partnership, I'm all ears. Let's discuss your ideas and see what
+              we can create together.
             </Typography>
           </Grid>
 
@@ -153,18 +143,6 @@ const Contact = () => {
               Submit
             </Button>
           </Grid>
-        </Grid>
-
-        <Grid item lg={6} sx={{ display: { xs: "none", md: "block" } }}>
-          <Container maxWidth="sm">
-            <Image
-              src="/images/profile-shot.jpg"
-              alt="profile"
-              width={640}
-              height={427}
-              priority
-            />
-          </Container>
         </Grid>
       </Grid>
     </form>

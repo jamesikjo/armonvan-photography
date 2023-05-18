@@ -1,14 +1,27 @@
-import { Container } from "@mui/material";
+import { Box, Container, useTheme, useMediaQuery } from "@mui/material";
 import Contact from "../components/Contact";
 import Layout from "../Layout";
 
 const ContactPage = () => {
+  const theme = useTheme();
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+    defaultMatches: true,
+  });
+
   return (
-    <Layout title="Contact">
-      <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 5, md: 8 } }}>
-        <Contact />
-      </Container>
-    </Layout>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      minHeight="100vh"
+      mt={isMd ? 0 : 14}
+    >
+      <Layout title="Contact">
+        <Container maxWidth="sm">
+          <Contact />
+        </Container>
+      </Layout>
+    </Box>
   );
 };
 
