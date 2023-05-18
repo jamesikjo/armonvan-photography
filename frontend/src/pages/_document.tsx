@@ -9,16 +9,18 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
           <link
             rel="preload"
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             as="style"
           />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-            rel="stylesheet"
-          />
+
           <link rel="icon" href="/favicons/favicon.ico" />
 
           <link
