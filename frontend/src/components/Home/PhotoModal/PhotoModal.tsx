@@ -12,14 +12,14 @@ const PhotoModal = ({ image, open, handleModalClose }: PhotoModalProps) => {
   return (
     <>
       <Modal
-        aria-labelledby={`transition-modal-shows`}
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        aria-labelledby="transition-modal-shows"
         open={open}
         closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          sx: { backgroundColor: "#020303 ", opacity: 0.9 },
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: { sx: { backgroundColor: "#020303 ", opacity: 0.9 } },
         }}
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
         <Box
           sx={{
@@ -31,9 +31,14 @@ const PhotoModal = ({ image, open, handleModalClose }: PhotoModalProps) => {
           <NextImage src={image} width={999} height={666} />
           <IconButton
             onClick={handleModalClose}
-            sx={{ position: "absolute", top: "2%", right: "2%", color: "#fff" }}
+            sx={{
+              position: "absolute",
+              top: "0%",
+              right: "0%",
+              color: "#fff",
+            }}
           >
-            <CloseIcon sx={{ fontSize: "2.5rem", color: "#fff" }} />
+            <CloseIcon sx={{ fontSize: "2rem", color: "#fff" }} />
           </IconButton>
         </Box>
       </Modal>
