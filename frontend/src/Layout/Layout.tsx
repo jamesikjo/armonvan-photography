@@ -16,15 +16,15 @@ const PAGES = [
   },
 ];
 
-const meta = {
+const META = {
   title: "AV Photography",
   description: "Armon Van - Photographer",
-  image: "/images/armonvan-footer-logo.png",
+  image: "/images/main-icon.png",
   type: "website",
 };
 
 interface LayoutProps {
-  children: JSX.Element;
+  children: React.ReactNode;
   title?: string;
   description?: string;
   colorInvert?: boolean;
@@ -50,8 +50,8 @@ const Layout = ({ children, title, colorInvert = false }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>{title || meta.title}</title>
-        <meta name="description" content={meta.description} />
+        <title>{title || META.title}</title>
+        <meta name="description" content={META.description} />
         <link
           rel="canonical"
           href={`https://armonvanphoto.com${router.asPath}`}
@@ -60,29 +60,28 @@ const Layout = ({ children, title, colorInvert = false }: LayoutProps) => {
           property="og:url"
           content={`https://armonvanphoto.com${router.asPath}`}
         />
-        <meta property="og:title" content={title || meta.title} />
-        <meta property="og:description" content={meta.description} />
+        <meta property="og:title" content={title || META.title} />
+        <meta property="og:description" content={META.description} />
         <meta property="og:site_name" content="AV Photography" />
-        <meta property="og:type" content={meta.type} />
-        <meta property="og:image" content={meta.image} />
+        <meta property="og:type" content={META.type} />
+        <meta property="og:image" content={META.image} />
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
           content={`https://armonvanphoto.com${router.asPath}`}
         />
-        <meta property="twitter:title" content={title || meta.title} />
-        <meta property="twitter:description" content={meta.description} />
-        <meta property="twitter:image" content={meta.image} />
+        <meta property="twitter:title" content={title || META.title} />
+        <meta property="twitter:description" content={META.description} />
+        <meta property="twitter:image" content={META.image} />
       </Head>
 
       <Box display="flex" flexDirection="column" minHeight="100vh">
         <AppBar
           // position="sticky"
           sx={{
-            top: 0,
             transition: "background-color 0.7s, box-shadow 0.7s",
             boxShadow: trigger ? "0px 1px 5px -1px rgba(0, 0, 0, 0.2)" : "none",
-            backgroundColor: trigger ? "#F7F9FC" : "transparent",
+            bgcolor: trigger ? "#F7F9FC" : "transparent",
           }}
         >
           <TopBar
@@ -109,7 +108,6 @@ const Layout = ({ children, title, colorInvert = false }: LayoutProps) => {
         >
           {children}
         </Box>
-        <Divider sx={{ mt: 4 }} />
         <Footer />
       </Box>
     </>

@@ -5,10 +5,11 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Link from "next/link";
+import { Container } from "@mui/material";
 
 const Bio = () => {
   return (
-    <Box>
+    <Container maxWidth="xl">
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <Box mb={3}>
@@ -69,7 +70,7 @@ const Bio = () => {
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 };
 
