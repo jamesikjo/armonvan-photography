@@ -32,7 +32,7 @@ const Welcome = () => {
         sx={{
           fontWeight: 700,
           color: "#f9f9f9",
-          letterSpacing: "2px",
+          letterSpacing: { xs: "normal", lg: "2px" },
         }}
       >
         Armon Van <br /> Photography
