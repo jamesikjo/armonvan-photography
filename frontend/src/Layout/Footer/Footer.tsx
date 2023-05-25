@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import { Box, Typography, Container } from "@mui/material";
-import { Page } from "../../types/strapi/Shared";
-
-// interface FooterProps {
-//   pages: Page[];
-// }
 
 const Footer = () => {
   return (
-    <Box component="footer" py={2}>
+    <Box
+      component="footer"
+      py={2}
+      mt="auto"
+      sx={{ borderTop: "1px solid #bababa", bgcolor: "#F7FAFF" }}
+    >
       <Container
         maxWidth="lg"
         sx={{
