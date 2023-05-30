@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import { Modal, Backdrop, IconButton, Box } from "@mui/material";
+import { Modal, Backdrop, IconButton, Box, Container } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 interface PhotoModalProps {
@@ -17,30 +17,28 @@ const PhotoModal = ({ image, open, handleModalClose }: PhotoModalProps) => {
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
-          backdrop: { sx: { backgroundColor: "#020303 ", opacity: 0.9 } },
+          backdrop: { sx: { backgroundColor: "#0c1212", opacity: 0.9 } },
         }}
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
-        <Box
-          sx={{
-            position: "relative",
-            width: "auto",
-            maxWidth: { lg: "100%" },
-          }}
-        >
-          <NextImage src={image} width={999} height={666} />
+        <Container maxWidth="lg" sx={{ zIndex: 1400 }}>
+          <Box
+            component="img"
+            src={image}
+            sx={{ width: "100%", height: "auto" }}
+          />
           <IconButton
             onClick={handleModalClose}
             sx={{
               position: "absolute",
-              top: "0%",
-              right: "0%",
+              top: 10,
+              right: 5,
               color: "#fff",
             }}
           >
-            <CloseIcon sx={{ fontSize: "2rem", color: "#fff" }} />
+            <CloseIcon sx={{ fontSize: "2.5rem", color: "#fff" }} />
           </IconButton>
-        </Box>
+        </Container>
       </Modal>
     </>
   );
