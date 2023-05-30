@@ -10,10 +10,10 @@ interface Media {
 
 //generate cloudinary image url from various image sources
 // const getCloudinaryUrl = (url: string) => {
-//   //build cloudinary url with desired image size and format
+//   build cloudinary url with desired image size and format
 //   const src = buildUrl(url, {
 //     cloud: {
-//       cloudName: "mykombucha",
+//       cloudName: "",
 //     },
 //     transformations: {
 //       resize: {

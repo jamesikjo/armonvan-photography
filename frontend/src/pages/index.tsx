@@ -1,33 +1,23 @@
+import React from "react";
+import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/material";
 import NoSsr from "@mui/material/NoSsr";
 import Layout from "../Layout";
-import {
-  Welcome,
-  Landscapes,
-  Sounds,
-  Bio,
-  WildLife,
-  PhotoModal,
-} from "../components/Home";
+import { Welcome, Bio, PhotoModal, CategoryBg } from "../components/Home";
+import { LandingAbout, LandingPhoto } from "../types/strapi/Landing";
+import { fetchData } from "../lib/fetchData";
+import { getStrapiMedia } from "../lib/getStrapiMedia";
 
-export type LandingSections = {
-  toggleModal: () => void;
-};
+interface APICall {
+  landingPhotos: LandingPhoto[];
+  aboutData: LandingAbout;
+}
 
-const homeSectionImages = {
-  welcome:
-    "https://res.cloudinary.com/jjo/image/upload/v1684429959/railroad-min_u1gauu.webp",
-  landscapes:
-    "https://res.cloudinary.com/jjo/image/upload/v1684430009/photo-1524024753536-2478712fa702_ibkpui.webp",
-  sounds:
-    "https://res.cloudinary.com/jjo/image/upload/v1684430063/photo-1582491612924-823805b0bbf2_kxr8rw.webp",
-  wildlife:
-    "https://res.cloudinary.com/jjo/image/upload/v1684430216/photo-1662110613939-fab519f24afc_n4r9pp.webp",
-};
-
-const Home = () => {
+const Home = ({ landingPhotos, aboutData }: APICall) => {
   const [modalState, setModalState] = useState({ open: false, image: "" });
+
+  const welcomeHeroData = landingPhotos[0]; //grab background img for hero(Welcome) section only
 
   useEffect(() => {
     const jarallaxInit = async () => {
@@ -77,7 +67,7 @@ const Home = () => {
     backgroundSize: "cover",
     backgroundPosition: "center center",
     backgroundImage: `url(${bgImg})`,
-    filter: "brightness(0.75)",
+    filter: "brightness(0.9)",
     backgroundColor: "#10100D",
   });
 
@@ -91,7 +81,7 @@ const Home = () => {
       >
         <Container maxWidth="lg">
           <Box display="flex" flexDirection="column" alignItems="center">
-            <Box sx={styles(homeSectionImages.welcome)} />
+            <Box sx={styles(getStrapiMedia(welcomeHeroData.image))} />
             <Welcome />
             <Box>
               <NoSsr>
@@ -116,64 +106,39 @@ const Home = () => {
           </Box>
         </Container>
       </Box>
-      <Box
-        className="jarallax"
-        data-jarallax
-        data-speed="0.2"
-        position="relative"
-        minHeight="100vh"
-        display="flex"
-        alignItems="center"
-        bgcolor="#0A0A08"
-        id="portfolio-item--js-scroll"
-      >
-        <Box
-          className="jarallax-img"
-          sx={styles(homeSectionImages.landscapes)}
-        />
-        <Container maxWidth="lg">
-          <Landscapes
-            toggleModal={() => toggleModal(homeSectionImages.landscapes)}
-          />
-        </Container>
-      </Box>
-      <Box
-        className="jarallax"
-        data-jarallax
-        data-speed="0.2"
-        position="relative"
-        minHeight="100vh"
-        display="flex"
-        alignItems="center"
-        bgcolor="#0A0A08"
-      >
-        <Box className="jarallax-img" sx={styles(homeSectionImages.sounds)} />
-        <Container maxWidth="lg">
-          <Sounds toggleModal={() => toggleModal(homeSectionImages.sounds)} />
-        </Container>
-      </Box>
-      <Box minHeight="100vh" display="flex" alignItems="center">
-        <Container>
-          <Bio />
-        </Container>
-      </Box>
-      <Box
-        className="jarallax"
-        data-jarallax
-        data-speed="0.5"
-        position="relative"
-        minHeight="100vh"
-        display="flex"
-        alignItems="center"
-        bgcolor="#0A0A08"
-      >
-        <Box className="jarallax-img" sx={styles(homeSectionImages.wildlife)} />
-        <Container maxWidth="lg">
-          <WildLife
-            toggleModal={() => toggleModal(homeSectionImages.wildlife)}
-          />
-        </Container>
-      </Box>
+      {landingPhotos.slice(1).map((item, index) => (
+        <React.Fragment key={item.id}>
+          <Box
+            className="jarallax"
+            data-jarallax
+            data-speed="0.2"
+            position="relative"
+            minHeight="100vh"
+            display="flex"
+            alignItems="center"
+            bgcolor="#0A0A08"
+            id="portfolio-item--js-scroll"
+          >
+            <Box
+              className="jarallax-img"
+              sx={styles(getStrapiMedia(item.image))}
+            />
+            <Container maxWidth="lg">
+              <CategoryBg
+                title={item.title}
+                toggleModal={() => toggleModal(getStrapiMedia(item.image))}
+              />
+            </Container>
+          </Box>
+          {index === 1 && (
+            <Box minHeight="100vh" display="flex" alignItems="center">
+              <Container>
+                <Bio aboutData={aboutData} />
+              </Container>
+            </Box>
+          )}
+        </React.Fragment>
+      ))}
       <PhotoModal
         image={modalState.image}
         open={modalState.open}
@@ -184,3 +149,27 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const landingPhotosRes = await fetchData("/landing", {
+    populate: {
+      photos: {
+        // Populate all relations in level-photos
+        populate: "*",
+      },
+    },
+  });
+  const aboutRes = await fetchData("/about", {
+    populate: "image",
+  });
+
+  const landingPhotos = landingPhotosRes.data.attributes.photos;
+  const aboutData = aboutRes.data.attributes;
+  return {
+    props: {
+      landingPhotos,
+      aboutData,
+    },
+    revalidate: 30,
+  };
+};

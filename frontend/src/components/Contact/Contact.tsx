@@ -30,7 +30,7 @@ interface Values {
   message: string;
 }
 
-const Contact = () => {
+const Contact = ({ description }: { description: string }) => {
   const [openToast, setOpenToast] = useState(false);
 
   const handleCloseToast = () => {
@@ -81,9 +81,7 @@ const Contact = () => {
             </Typography>
 
             <Typography variant="subtitle1" color="primary">
-              Whether you need a photographer or are interested in a creative
-              partnership, I'm all ears. Let's discuss your ideas and see what
-              we can create together.
+              {description}
             </Typography>
           </Grid>
 

@@ -6,21 +6,25 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Link from "next/link";
 import { Container } from "@mui/material";
+import { LandingAbout } from "../../../types/strapi/Landing";
+import { getStrapiMedia } from "../../../lib/getStrapiMedia";
 
-const Bio = () => {
+interface BioProps {
+  aboutData: LandingAbout;
+}
+
+const Bio = ({ aboutData }: BioProps) => {
+  const { title, description, image } = aboutData;
   return (
     <Container maxWidth="xl">
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <Box mb={3}>
             <Typography variant="h4" fontWeight="700" gutterBottom>
-              Crafting Timeless Moments Through Photography
+              {title}
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              I specialize in capturing moments in the realm of outdoor events,
-              live performances, and wildlife photography. My focus lies in
-              employing long exposure techniques and working adeptly in
-              low-light conditions to craft visually captivating images.
+              {description}
             </Typography>
           </Box>
           <Box>
@@ -31,7 +35,7 @@ const Bio = () => {
                     <Button variant="outlined" sx={{ px: { md: 6.75 } }}>
                       <Box
                         component="img"
-                        src="/images/main-icon.png"
+                        src={"/images/main-icon.png"}
                         alt="Icon"
                         width={20}
                         height={20}
@@ -65,7 +69,7 @@ const Bio = () => {
               height={1}
               width={1}
               minHeight={300}
-              image="/images/profile-shot.jpg"
+              image={getStrapiMedia(image)}
             />
           </Box>
         </Grid>
