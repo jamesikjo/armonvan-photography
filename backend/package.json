@@ -2,7 +2,7 @@
   "dependencies": {
     "@strapi/plugin-graphql": "^4.1.11",
     "@strapi/plugin-i18n": "4.1.8",
-    "@strapi/plugin-users-permissions": "4.1.8",
+    "@strapi/plugin-users-permissions": "^4.10.6",
     "@strapi/provider-upload-cloudinary": "^4.1.11",
     "@strapi/strapi": "4.1.8",
     "better-sqlite3": "7.4.6",
@@ -10,7 +10,7 @@
     "mime-types": "^2.1.35",
     "pg": "^8.7.3",
     "pg-connection-string": "^2.5.0",
-    "sqlite3": "5.0.2"
+    "sqlite3": "^5.1.6"
   },
   "name": "backend",
   "private": true,
