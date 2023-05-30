@@ -29,12 +29,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "admin::user"
-    },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "photos"
     }
   }
 }

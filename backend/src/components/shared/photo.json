@@ -9,7 +9,7 @@
   "attributes": {
     "position": {
       "type": "integer",
-      "required": true
+      "required": false
     },
     "title": {
       "type": "string"
@@ -21,10 +21,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "photographer": {
-      "type": "string",
-      "default": "RG"
     }
   }
 }

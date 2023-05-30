@@ -4,7 +4,8 @@
   "info": {
     "singularName": "landing",
     "pluralName": "landings",
-    "displayName": "Landing"
+    "displayName": "Landing",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
