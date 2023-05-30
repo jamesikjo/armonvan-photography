@@ -139,8 +139,6 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
             objectFit="contain"
             quality={100}
             onLoadingComplete={() => setImageLoad(false)}
-            // width={currentPhoto.data.attributes.width}
-            // height={currentPhoto.data.attributes.height}
           />
           <ForwardButton handleForwardBtn={handleForwardBtn} />
           <BackButton handleBackBtn={handleBackBtn} />
@@ -157,7 +155,7 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
             {photoList[selectedIdx].title}
           </Typography>
           <Typography color="secondary" variant="body1">
-            {`by ${photoList[selectedIdx].photographer}`}
+            {`by AV`}
           </Typography>
         </Box>
         <Thumbnails
@@ -176,7 +174,7 @@ const ImageGallery = ({ photoList }: ImageGalleryProps) => {
           right: "4%",
         }}
       >
-        <CloseIcon color="secondary" sx={{ fontSize: "1.6em" }} />
+        <CloseIcon sx={{ fontSize: "1.6em", color: "#fff" }} />
       </IconButton>
     </Box>
   );

@@ -17,7 +17,7 @@ const PhotoGallery = ({ singleCategory }: APICall) => {
       <Head>
         <title>{singleCategory.attributes.title}</title>
       </Head>
-      <Box bgcolor="#020303 " height="100vh">
+      <Box bgcolor="#0c1212" height="100vh">
         <ImageGallery photoList={images} />
       </Box>
     </>
