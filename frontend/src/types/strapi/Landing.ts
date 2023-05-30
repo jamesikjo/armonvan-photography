@@ -1,10 +1,9 @@
 import { Image } from "./Shared";
 
-export interface Landing {
-  id: number;
-  attributes: {
-    photos: LandingPhoto[];
-  };
+export interface LandingAbout {
+  title: string;
+  description: string;
+  image: Image;
 }
 
 export interface LandingPhoto {
